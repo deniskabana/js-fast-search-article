@@ -1,6 +1,6 @@
 This repository contains code pertaining to my Medium article.
 
-**TBD: Add article link and title here**
+[How I made JavaScript search millions of rows fast](https://medium.com/@denis.kabana/how-i-made-javascript-search-millions-of-rows-fast-bda68c48fd91)
 
 ---
 

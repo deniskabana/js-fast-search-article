@@ -116,10 +116,9 @@ export default class AdvancedClientSearch<T extends IdentifiableT = Identifiable
 
     // Sanitize and optimize all data
     for (const field of this.userOptions.fields) {
-      if (item[field] !== undefined || field === "id") {
-        const sanitizedString: string = sanitizeString(String(item[field])) || "";
-        dataOptimizedForSearch[String(field)] = sanitizedString;
-      }
+      if (item[field] === undefined || field === "id") continue;
+      const sanitizedString: string = sanitizeString(String(item[field])) || "";
+      dataOptimizedForSearch[String(field)] = sanitizedString;
     }
 
     return true;
@@ -151,18 +150,18 @@ export default class AdvancedClientSearch<T extends IdentifiableT = Identifiable
    * Saves the query, results IDs, and bucket search status to the cache.
    * @param {string} query - The query to be saved.
    * @param {T['id'][]} resultsIds - The array of results IDs to be saved.
-   * @param {BucketSearchStatus[]} bucketSearchStatus - The array of bucket search status to be saved.
+   * @param {BucketSearchStatus[]} bucketSearchStatuses - The array of bucket search status to be saved.
    * @returns {void}
    */
   private saveQueryToCache = (
     query: string,
     resultsIds: T["id"][],
     resultsByBucket: SingleCacheResult["resultsByBucket"],
-    bucketSearchStatus: BucketSearchStatus[],
+    bucketSearchStatuses: BucketSearchStatus[],
   ): void => {
     if (!resultsIds.length) return;
     const cachedResult: SingleCacheResult = {
-      buckets: bucketSearchStatus,
+      buckets: bucketSearchStatuses,
       resultsByBucket,
       resultsIds,
     };
