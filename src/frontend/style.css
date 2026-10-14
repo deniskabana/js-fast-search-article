@@ -1,0 +1,179 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  transition: 0.3s ease;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+html {
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+:root {
+  --silver: #cfcfcf;
+  --gray: #a3a3a3;
+}
+
+#app {
+  padding: 2rem 1rem;
+}
+
+pre {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 990px;
+  margin: 0 auto;
+}
+
+.group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.search-results-container {
+  border: 1px solid var(--silver);
+  border-radius: 0.5rem;
+  flex-grow: 1;
+  box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.05);
+  overflow: scroll;
+  max-height: 22rem;
+}
+
+#search-results {
+  border-collapse: collapse;
+  border-radius: 0.5rem;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  min-width: 600px;
+}
+#search-results th {
+  border: 1px solid #5a5a5a40;
+  border-top: none;
+  padding: 0.25rem;
+}
+#search-results th:last-of-type {
+  border-right: none;
+}
+#search-results th:first-of-type {
+  border-left: none;
+}
+#search-results tbody tr:hover {
+  background-color: var(--silver);
+}
+#search-results td {
+  font-size: 0.75em;
+  padding: 0.15rem 0.25rem;
+}
+
+.text-field {
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  padding: 0.25rem;
+  flex-grow: 1;
+  width: 100%;
+  border: 3px solid var(--gray);
+}
+.text-field:disabled {
+  cursor: not-allowed;
+  background: #0000000a;
+  border-color: var(--silver);
+}
+.text-field:focus {
+  border-color: #7a69aa;
+  outline: none;
+}
+
+.button {
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #9990cf;
+  color: #fff;
+  font-weight: 700;
+  height: 2.25rem;
+  padding: 0 0.5rem;
+  height: 2rem;
+  font-size: 0.9rem;
+  width: 14rem;
+  cursor: pointer;
+}
+.button:hover,
+.button:focus {
+  background-color: #7a69aa;
+}
+.button:disabled {
+  cursor: not-allowed;
+  background: var(--silver);
+}
+
+.text {
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+
+#no-results {
+  width: 100%;
+  text-align: center;
+}
+
+/* Author: https://css-loaders.com/spinner/ */
+.loader {
+  width: 1.6rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid #7a69aa;
+  animation:
+    l20-1 1.2s infinite ease-out alternate,
+    l20-2 2.4s infinite ease-out;
+}
+@keyframes l20-1 {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%);
+  }
+  12.5% {
+    clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%);
+  }
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 100%, 100% 100%, 100% 100%);
+  }
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%);
+  }
+  62.5% {
+    clip-path: polygon(50% 50%, 100% 0, 100% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%);
+  }
+  75% {
+    clip-path: polygon(50% 50%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 50% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(50% 50%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 0% 100%);
+  }
+}
+@keyframes l20-2 {
+  0% {
+    transform: scaleY(1) rotate(0deg);
+  }
+  49.99% {
+    transform: scaleY(1) rotate(135deg);
+  }
+  50% {
+    transform: scaleY(-1) rotate(0deg);
+  }
+  100% {
+    transform: scaleY(-1) rotate(-135deg);
+  }
+}

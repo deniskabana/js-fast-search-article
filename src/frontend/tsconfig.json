@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.json",
+  "files": ["main.ts"],
+  "compilerOptions": {
+    "outDir": "public",
+    "lib": ["ES6", "DOM"],
+    "module": "node16"
+  }
+}

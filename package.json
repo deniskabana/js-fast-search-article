@@ -1,0 +1,29 @@
+{
+  "name": "fast-js-search-demo",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "engines": {
+    "node": "24.16.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/backend/main.ts",
+    "test": "node src/frontend/search/AdvancedClientSearch.test.ts",
+    "generate-products": "node src/scripts/generateDataSet.ts",
+    "build-frontend": "cd src/frontend && vite build"
+  },
+  "keywords": [],
+  "author": "denis.kabana@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^10.6.0",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.4",
+    "vite": "^8.3.2"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "typescript": "^7.0.2"
+  }
+}
